@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f33597dca6a6976438ebfe9e9c65ed84
+guid: 4704ff3acfe643949acac1eb4577cfd5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,127 +136,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death_0
+      name: Walk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74668f173d99feb4da5e0ea167a0ae51
-      internalID: -573590985
+      spriteID: 0ce687b81bf5e1f40a55dfc6c53b05a1
+      internalID: -1341901275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_1
+      name: Walk_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a5aa90e847cf9048b441d28b2b55e4b
-      internalID: -7080154
+      spriteID: a4d4f39c829b46e48a88e678276773cf
+      internalID: 2137790640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_2
+      name: Walk_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5a5ced9dcfe59b488d8025661316299
-      internalID: 2025741600
+      spriteID: 8def5b0a4d30737499d43cb8cb57423b
+      internalID: -1039356835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_3
+      name: Walk_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e7807c2d41baa3418cdf154d3a26da8
-      internalID: -1761516291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fee40464c1943c4eadbd9d374830527
-      internalID: 1335555333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce82d2a3c7629f74e9cc8bd70408ec3e
-      internalID: 925772742
+      spriteID: 85a30454b4d1b7c40b6546c1eeca8248
+      internalID: -1966341611
       vertices: []
       indices: 
       edges: []
@@ -272,12 +230,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Death_0: -573590985
-      Death_1: -7080154
-      Death_2: 2025741600
-      Death_3: -1761516291
-      Death_4: 1335555333
-      Death_5: 925772742
+      Walk_0: -1341901275
+      Walk_1: 2137790640
+      Walk_2: -1039356835
+      Walk_3: -1966341611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
