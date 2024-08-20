@@ -60,4 +60,6 @@ public abstract class Life : MonoBehaviour
     }
 
     public abstract void Die();
+
+    public abstract void OnDeathComplete();
 }

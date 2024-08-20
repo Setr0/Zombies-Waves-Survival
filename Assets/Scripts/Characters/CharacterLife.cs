@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer), typeof(Animator))]
 public class CharacterLife : Life
 {
     SpriteRenderer spriteRenderer;
@@ -31,4 +32,6 @@ public class CharacterLife : Life
     {
         animator.SetTrigger("Death");
     }
+
+    public override void OnDeathComplete() { }
 }
