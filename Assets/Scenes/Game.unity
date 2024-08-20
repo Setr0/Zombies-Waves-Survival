@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 111416688}
   - component: {fileID: 111416687}
   - component: {fileID: 111416686}
+  - component: {fileID: 111416693}
   - component: {fileID: 111416684}
   - component: {fileID: 111416685}
   m_Layer: 8
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0795e6698807f7742b5cfab0588efcb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopDistance: 1
+  stopDistance: 0.75
 --- !u!58 &111416688
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -350,6 +351,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111416693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111416683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6afe41bfc10b44ba3d92d6ab5ba542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  damageDelay: 0.75
+  damageRadius: 0.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &125615175
 GameObject:
   m_ObjectHideFlags: 3
@@ -6365,7 +6384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   maxHealth: 0
-  hitDelay: 0.5
+  hitDelay: 1
 --- !u!1 &1537344985
 GameObject:
   m_ObjectHideFlags: 0
