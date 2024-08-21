@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Life))]
 public class CharacterMovement : MonoBehaviour
 {
+    public delegate void FlipHandler(float scale);
+    public event FlipHandler OnFlipped;
+
     Life life;
 
     Rigidbody2D rb;
@@ -57,6 +60,8 @@ public class CharacterMovement : MonoBehaviour
 
         if (direction.x > 0) transform.localScale = new Vector3(1, 1, 1);
         if (direction.x < 0) transform.localScale = new Vector3(-1, 1, 1);
+
+        OnFlipped?.Invoke(transform.localScale.x);
     }
 
     public void SetDirection(Vector2 direction)

@@ -62,4 +62,13 @@ public abstract class Life : MonoBehaviour
     public abstract void Die();
 
     public abstract void OnDeathComplete();
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            TakeDamage(collision.GetComponent<Bullet>().damage);
+            collision.GetComponent<Bullet>().Disable();
+        }
+    }
 }

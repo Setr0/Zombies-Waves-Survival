@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterMovement))]
+[RequireComponent(typeof(CharacterMovement), typeof(PlayerWeaponHandler))]
 public class InputManager : MonoBehaviour
 {
     CharacterMovement characterMovement;
+    PlayerWeaponHandler playerWeaponHandler;
 
     PlayerInputAction playerInputAction;
 
@@ -18,6 +19,7 @@ public class InputManager : MonoBehaviour
     void Start()
     {
         characterMovement = GetComponent<CharacterMovement>();
+        playerWeaponHandler = GetComponent<PlayerWeaponHandler>();
     }
 
     void OnEnable()
@@ -26,6 +28,8 @@ public class InputManager : MonoBehaviour
 
         playerInputAction.Player.Move.performed += Move;
         playerInputAction.Player.Move.canceled += Move;
+
+        playerInputAction.Player.Shoot.performed += Shoot;
     }
 
     void OnDisable()
@@ -34,10 +38,17 @@ public class InputManager : MonoBehaviour
 
         playerInputAction.Player.Move.performed -= Move;
         playerInputAction.Player.Move.canceled -= Move;
+
+        playerInputAction.Player.Shoot.performed -= Shoot;
     }
 
     void Move(InputAction.CallbackContext context)
     {
         characterMovement.SetDirection(context.ReadValue<Vector2>());
+    }
+
+    void Shoot(InputAction.CallbackContext context)
+    {
+        playerWeaponHandler.Shoot();
     }
 }
