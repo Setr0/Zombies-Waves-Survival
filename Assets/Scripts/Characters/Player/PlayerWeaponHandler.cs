@@ -8,6 +8,9 @@ public class PlayerWeaponHandler : MonoBehaviour
     public delegate void FlipHandler(bool isRight);
     public event FlipHandler OnFlipped;
 
+    public delegate void AmmosHandler(int ammos, int ammosInUse);
+    public event AmmosHandler OnAmmosChanged;
+
     Camera mainCamera;
 
     public Weapon currentWeapon;
@@ -18,9 +21,18 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     [SerializeField] float offset = 180f;
 
+    [Space(20)]
+    [SerializeField] int ammos = 99;
+    [SerializeField] int ammosInUse = 10;
+    int maxAmmosInUse;
+
     void Start()
     {
         mainCamera = Camera.main;
+
+        maxAmmosInUse = ammosInUse;
+
+        OnAmmosChanged?.Invoke(ammos, ammosInUse);
     }
 
     void Update()
@@ -54,6 +66,36 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void Shoot()
     {
+        if (ammosInUse <= 0 || !currentWeapon.canShoot) return;
+
         currentWeapon.SpawnBullet();
+
+        ammosInUse--;
+
+        OnAmmosChanged?.Invoke(ammos, ammosInUse);
+
+        if (ammosInUse <= 0) ReloadWeapon();
+    }
+
+    public void ReloadWeapon()
+    {
+        if (ammos <= 0) return;
+
+        int neededAmmos = maxAmmosInUse - ammosInUse;
+
+        if (maxAmmosInUse >= neededAmmos)
+        {
+            ammosInUse += neededAmmos;
+
+            ammos -= neededAmmos;
+        }
+        else
+        {
+            ammosInUse = ammos;
+
+            ammos = 0;
+        }
+
+        OnAmmosChanged?.Invoke(ammos, ammosInUse);
     }
 }

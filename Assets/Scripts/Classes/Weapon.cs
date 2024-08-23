@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
 
     Vector2 direction;
 
-    bool canShoot;
+    public bool canShoot;
 
     void Start()
     {

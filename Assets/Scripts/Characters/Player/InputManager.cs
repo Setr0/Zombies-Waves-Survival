@@ -30,6 +30,8 @@ public class InputManager : MonoBehaviour
         playerInputAction.Player.Move.canceled += Move;
 
         playerInputAction.Player.Shoot.performed += Shoot;
+
+        playerInputAction.Player.Reload.performed += Reload;
     }
 
     void OnDisable()
@@ -40,6 +42,8 @@ public class InputManager : MonoBehaviour
         playerInputAction.Player.Move.canceled -= Move;
 
         playerInputAction.Player.Shoot.performed -= Shoot;
+
+        playerInputAction.Player.Reload.performed -= Reload;
     }
 
     void Move(InputAction.CallbackContext context)
@@ -50,5 +54,10 @@ public class InputManager : MonoBehaviour
     void Shoot(InputAction.CallbackContext context)
     {
         playerWeaponHandler.Shoot();
+    }
+
+    void Reload(InputAction.CallbackContext context)
+    {
+        playerWeaponHandler.ReloadWeapon();
     }
 }
