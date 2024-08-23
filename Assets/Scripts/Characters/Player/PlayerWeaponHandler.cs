@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterMovement))]
 public class PlayerWeaponHandler : MonoBehaviour
 {
-    CharacterMovement characterMovement;
+    public delegate void FlipHandler(bool isRight);
+    public event FlipHandler OnFlipped;
 
     Camera mainCamera;
 
@@ -17,24 +18,9 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     [SerializeField] float offset = 180f;
 
-    void Awake()
-    {
-        characterMovement = GetComponent<CharacterMovement>();
-    }
-
     void Start()
     {
         mainCamera = Camera.main;
-    }
-
-    void OnEnable()
-    {
-        characterMovement.OnFlipped += FlipX;
-    }
-
-    void OnDisable()
-    {
-        characterMovement.OnFlipped -= FlipX;
     }
 
     void Update()
@@ -42,12 +28,6 @@ public class PlayerWeaponHandler : MonoBehaviour
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         Rotate();
-    }
-
-    void FlipX(float scale)
-    {
-        if (scale < 0) weaponContainer.localScale = new Vector3(-1, weaponContainer.localScale.y, 1);
-        else weaponContainer.localScale = new Vector3(1, weaponContainer.localScale.y, 1);
     }
 
     void Rotate()
@@ -60,11 +40,15 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         if (mousePosition.x < weaponContainer.position.x)
         {
-            weaponContainer.localScale = new Vector3(weaponContainer.localScale.x, -1, 1);
+            weaponContainer.localScale = new Vector3(-1, -1, 1);
+
+            OnFlipped?.Invoke(false);
         }
         else
         {
-            weaponContainer.localScale = new Vector3(weaponContainer.localScale.x, 1, 1);
+            weaponContainer.localScale = new Vector3(1, 1, 1);
+
+            OnFlipped?.Invoke(true);
         }
     }
 

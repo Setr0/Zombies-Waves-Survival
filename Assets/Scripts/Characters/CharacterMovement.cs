@@ -5,9 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Life))]
 public class CharacterMovement : MonoBehaviour
 {
-    public delegate void FlipHandler(float scale);
-    public event FlipHandler OnFlipped;
-
     Life life;
 
     Rigidbody2D rb;
@@ -18,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
 
     bool isEnabled;
 
-    void Awake()
+    protected virtual void Awake()
     {
         life = GetComponent<Life>();
     }
@@ -30,12 +27,12 @@ public class CharacterMovement : MonoBehaviour
         isEnabled = true;
     }
 
-    void OnEnable()
+    protected virtual void OnEnable()
     {
         life.OnDied += Disable;
     }
 
-    void OnDisable()
+    protected virtual void OnDisable()
     {
         life.OnDied -= Disable;
     }
@@ -56,16 +53,19 @@ public class CharacterMovement : MonoBehaviour
 
         rb.velocity = direction * speed;
 
-        if (direction.x == 0) return;
-
-        if (direction.x > 0) transform.localScale = new Vector3(1, 1, 1);
-        if (direction.x < 0) transform.localScale = new Vector3(-1, 1, 1);
-
-        OnFlipped?.Invoke(transform.localScale.x);
+        Flip();
     }
 
     public void SetDirection(Vector2 direction)
     {
         this.direction = direction;
+    }
+
+    protected virtual void Flip()
+    {
+        if (direction.x == 0) return;
+
+        if (direction.x > 0) transform.localScale = new Vector3(1, 1, 1);
+        if (direction.x < 0) transform.localScale = new Vector3(-1, 1, 1);
     }
 }

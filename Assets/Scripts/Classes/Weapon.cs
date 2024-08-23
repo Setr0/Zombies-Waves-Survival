@@ -6,7 +6,6 @@ public class Weapon : MonoBehaviour
 {
     public WeaponObject weaponObject;
     [SerializeField] Transform bulletSpawnPoint;
-    [SerializeField] Transform distancePoint;
 
     Vector2 direction;
 
@@ -21,7 +20,7 @@ public class Weapon : MonoBehaviour
     {
         if (!canShoot) return;
 
-        direction = (distancePoint.position - bulletSpawnPoint.position).normalized;
+        direction = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)bulletSpawnPoint.position).normalized;
 
         GameObject bullet = PoolManager.Instance.Instantiate("Bullet",
                                                     bulletSpawnPoint.position, GetRotation(bulletSpawnPoint.position, direction));
