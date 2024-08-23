@@ -5,9 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class EnemyLife : CharacterLife
 {
+    [SerializeField] string id;
+    [SerializeField] string[] dropIds;
+
     public override void OnDeathComplete()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("Restore");
+
+        PoolManager.Instance.Instantiate(dropIds[Random.Range(0, dropIds.Length)], transform.position, Quaternion.identity);
+
+        gameObject.SetActive(false);
+
+        PoolManager.Instance.AddToPool(id, gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

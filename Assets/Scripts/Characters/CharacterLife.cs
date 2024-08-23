@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterLife : Life
 {
     SpriteRenderer spriteRenderer;
-    Animator animator;
+    protected Animator animator;
 
     protected override void Start()
     {

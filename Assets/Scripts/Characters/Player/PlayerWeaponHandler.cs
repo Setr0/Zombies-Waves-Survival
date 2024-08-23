@@ -98,4 +98,11 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         OnAmmosChanged?.Invoke(ammos, ammosInUse);
     }
+
+    public void AddAmmos(int ammos)
+    {
+        this.ammos += ammos;
+
+        OnAmmosChanged?.Invoke(this.ammos, ammosInUse);
+    }
 }

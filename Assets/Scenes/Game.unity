@@ -6416,7 +6416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1458201337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7022,6 +7022,11 @@ MonoBehaviour:
     container: {fileID: 0}
   - id: Bullet
     prefab: {fileID: 8448059426683067628, guid: 0c431ec6a9997d942805641218aa385e, type: 3}
+    pooledObjects: []
+    amount: 15
+    container: {fileID: 0}
+  - id: AmmosSack
+    prefab: {fileID: 1771906746107018551, guid: 188b5a453a29a7e40a1e8ea8f671858b, type: 3}
     pooledObjects: []
     amount: 15
     container: {fileID: 0}

@@ -234,6 +234,9 @@ MonoBehaviour:
   health: 3
   maxHealth: 0
   hitDelay: 0.5
+  id: Zombie
+  dropIds:
+  - AmmosSack
 --- !u!114 &8074550266760465147
 MonoBehaviour:
   m_ObjectHideFlags: 0
