@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public WeaponObject weaponObject;
     [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] GameObject muzzleFlash;
 
     Vector2 direction;
 
@@ -28,12 +29,18 @@ public class Weapon : MonoBehaviour
         bullet.GetComponent<Bullet>().damage = weaponObject.stats.damage;
         bullet.GetComponent<Bullet>().pierce = weaponObject.stats.pierce;
 
+        muzzleFlash.SetActive(true);
+
         canShoot = false;
         StartCoroutine(ShootDelay());
     }
 
     IEnumerator ShootDelay()
     {
+        yield return new WaitForSeconds(0.1f);
+
+        muzzleFlash.SetActive(false);
+
         yield return new WaitForSeconds(weaponObject.stats.fireRate);
 
         canShoot = true;

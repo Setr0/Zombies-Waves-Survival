@@ -8,6 +8,20 @@ public class EnemyLife : CharacterLife
     [SerializeField] string id;
     [SerializeField] string[] dropIds;
 
+    public override void Damaged()
+    {
+        base.Damaged();
+
+        if (Crosshair.Instance != null) Crosshair.Instance.SetHitted();
+    }
+
+    public override void Die()
+    {
+        base.Die();
+
+        if (Crosshair.Instance != null) Crosshair.Instance.SetKilled();
+    }
+
     public override void OnDeathComplete()
     {
         animator.SetTrigger("Restore");
