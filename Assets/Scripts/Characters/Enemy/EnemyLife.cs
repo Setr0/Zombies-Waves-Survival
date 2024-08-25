@@ -8,11 +8,9 @@ public class EnemyLife : CharacterLife
     [SerializeField] string id;
     [SerializeField] string[] dropIds;
 
-    protected override void Start()
+    void OnEnable()
     {
-        base.Start();
-
-        if (Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Water")))
+        if (Physics2D.OverlapCircle(transform.position, 0.25f, LayerMask.GetMask("Water")))
         {
             gameObject.SetActive(false);
 
