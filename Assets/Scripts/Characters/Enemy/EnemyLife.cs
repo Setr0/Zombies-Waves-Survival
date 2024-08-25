@@ -8,6 +8,18 @@ public class EnemyLife : CharacterLife
     [SerializeField] string id;
     [SerializeField] string[] dropIds;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        if (Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Water")))
+        {
+            gameObject.SetActive(false);
+
+            PoolManager.Instance.AddToPool(id, gameObject);
+        }
+    }
+
     public override void Damaged()
     {
         base.Damaged();
