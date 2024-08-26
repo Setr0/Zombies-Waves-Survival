@@ -13,7 +13,7 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] float speed = 6f;
 
-    bool isEnabled;
+    protected bool isEnabled;
 
     protected virtual void Awake()
     {

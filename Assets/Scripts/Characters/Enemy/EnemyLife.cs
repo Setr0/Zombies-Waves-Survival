@@ -5,18 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class EnemyLife : CharacterLife
 {
+    public delegate void EnemyLifeHandler();
+    public event EnemyLifeHandler OnRestored;
+
     [SerializeField] string id;
     [SerializeField] string[] dropIds;
-
-    void OnEnable()
-    {
-        if (Physics2D.OverlapCircle(transform.position, 0.25f, LayerMask.GetMask("Water")))
-        {
-            gameObject.SetActive(false);
-
-            PoolManager.Instance.AddToPool(id, gameObject);
-        }
-    }
 
     public override void Damaged()
     {
@@ -34,7 +27,13 @@ public class EnemyLife : CharacterLife
 
     public override void OnDeathComplete()
     {
+        if (WavesManager.Instance != null) WavesManager.Instance.UpdateWaveState();
+
         animator.SetTrigger("Restore");
+        isTakingHit = false;
+        isDying = false;
+
+        OnRestored?.Invoke();
 
         PoolManager.Instance.Instantiate(dropIds[Random.Range(0, dropIds.Length)], transform.position, Quaternion.identity);
 

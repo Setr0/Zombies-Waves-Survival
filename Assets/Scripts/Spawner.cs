@@ -6,11 +6,16 @@ using UnityEngine.Tilemaps;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] string[] ids;
-    [SerializeField] float spawnTime = 3f;
-    [SerializeField] int amount = 1;
+    public int amount = 1;
 
     [Space(10)]
     [SerializeField] Vector2 distance = new Vector2(30f, 30f);
+
+    [Space(10)]
+    [SerializeField] Tilemap grassTilemap;
+    [SerializeField] Tilemap waterTilemap;
+
+    List<Vector2> grassTilesPositions;
 
     Transform player;
     Camera mainCamera;
@@ -18,7 +23,7 @@ public class Spawner : MonoBehaviour
     int attempts;
     int maxAttempts;
 
-    void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         mainCamera = Camera.main;
@@ -26,17 +31,36 @@ public class Spawner : MonoBehaviour
         attempts = 0;
         maxAttempts = 50;
 
-        InvokeRepeating(nameof(Spawn), spawnTime, spawnTime);
+        grassTilesPositions = new List<Vector2>();
+
+        BoundsInt bounds = grassTilemap.cellBounds;
+
+        foreach (Vector3Int position in bounds.allPositionsWithin)
+        {
+            if (grassTilemap.HasTile(position) && !waterTilemap.HasTile(position))
+            {
+                grassTilesPositions.Add((Vector2Int)position);
+            }
+        }
     }
 
-    void Spawn()
+    public void Spawn()
     {
         attempts = 0;
         for (int i = 0; i < amount; i++)
         {
             if (attempts > maxAttempts) break;
 
-            Vector2 randomPosition = (Vector2)player.position + new Vector2(Random.Range(-distance.x, distance.x), Random.Range(-distance.y, distance.y));
+            List<Vector2> nearTiles = new List<Vector2>();
+            foreach (Vector2 position in grassTilesPositions)
+            {
+                if (Vector2.Distance(position, player.position) < 30)
+                {
+                    nearTiles.Add(position);
+                }
+            }
+
+            Vector2 randomPosition = nearTiles[Random.Range(0, nearTiles.Count)];
             Vector2 randomPositionToViewportPoint = mainCamera.WorldToViewportPoint(randomPosition);
 
             string randomId = ids[Random.Range(0, ids.Length)];

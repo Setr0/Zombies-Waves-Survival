@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Life))]
 public class EnemyDamageArea : MonoBehaviour
 {
-    Life life;
+    EnemyLife enemyLife;
 
     [SerializeField] float damage = 1;
     [SerializeField] float damageDelay = 0.75f;
@@ -21,7 +21,7 @@ public class EnemyDamageArea : MonoBehaviour
 
     void Awake()
     {
-        life = GetComponent<Life>();
+        enemyLife = GetComponent<EnemyLife>();
     }
 
     void Start()
@@ -32,17 +32,24 @@ public class EnemyDamageArea : MonoBehaviour
 
     void OnEnable()
     {
-        life.OnDied += Disable;
+        enemyLife.OnDied += Disable;
+        enemyLife.OnRestored += Enable;
     }
 
     void OnDisable()
     {
-        life.OnDied -= Disable;
+        enemyLife.OnDied -= Disable;
+        enemyLife.OnRestored -= Enable;
     }
 
     void Disable()
     {
         isEnabled = false;
+    }
+
+    void Enable()
+    {
+        isEnabled = true;
     }
 
     void Update()
