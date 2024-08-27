@@ -26,6 +26,8 @@ public class PlayerWeaponHandler : MonoBehaviour
     [SerializeField] int ammosInUse = 10;
     int maxAmmosInUse;
 
+    bool isReloading;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -33,6 +35,8 @@ public class PlayerWeaponHandler : MonoBehaviour
         maxAmmosInUse = ammosInUse;
 
         OnAmmosChanged?.Invoke(ammos, ammosInUse);
+
+        isReloading = false;
     }
 
     void Update()
@@ -66,7 +70,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void Shoot()
     {
-        if (ammosInUse <= 0 || !currentWeapon.canShoot) return;
+        if (ammosInUse <= 0 || !currentWeapon.canShoot || isReloading) return;
 
         currentWeapon.SpawnBullet();
 
@@ -74,16 +78,19 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         OnAmmosChanged?.Invoke(ammos, ammosInUse);
 
-        if (ammosInUse <= 0) ReloadWeapon();
+        if (ammosInUse <= 0)
+            StartCoroutine(ReloadWeapon());
     }
 
-    public void ReloadWeapon()
+    public IEnumerator ReloadWeapon()
     {
-        if (ammos <= 0) return;
+        if (ammos <= 0) yield break;
+
+        isReloading = true;
 
         int neededAmmos = maxAmmosInUse - ammosInUse;
 
-        if (maxAmmosInUse >= neededAmmos)
+        if (maxAmmosInUse >= neededAmmos && neededAmmos < ammos)
         {
             ammosInUse += neededAmmos;
 
@@ -96,7 +103,11 @@ public class PlayerWeaponHandler : MonoBehaviour
             ammos = 0;
         }
 
+        yield return new WaitForSeconds(currentWeapon.weaponObject.stats.realoadTime);
+
         OnAmmosChanged?.Invoke(ammos, ammosInUse);
+
+        isReloading = false;
     }
 
     public void AddAmmos(int ammos)

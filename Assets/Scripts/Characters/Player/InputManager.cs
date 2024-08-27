@@ -58,6 +58,6 @@ public class InputManager : MonoBehaviour
 
     void Reload(InputAction.CallbackContext context)
     {
-        playerWeaponHandler.ReloadWeapon();
+        StartCoroutine(playerWeaponHandler.ReloadWeapon());
     }
 }
