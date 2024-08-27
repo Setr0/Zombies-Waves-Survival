@@ -16,4 +16,9 @@ public class PlayerWeaponInventory : MonoBehaviour
             playerWeaponHandler.currentWeapon
         };
     }
+
+    public void AddWeapon(Weapon weapon)
+    {
+        weapons.Add(weapon);
+    }
 }
