@@ -21,6 +21,9 @@ public class WavesManager : MonoBehaviour
     public delegate void WavesHandler(int waves);
     public event WavesHandler OnWaveStarted;
 
+    public delegate void EnemiesHandler(int enemies);
+    public event EnemiesHandler OnUpdatedCurrentEnemies;
+
     [SerializeField] Spawner spawner;
 
     [SerializeField] int enemiesInWave = 10;
@@ -49,11 +52,14 @@ public class WavesManager : MonoBehaviour
         spawner.Spawn();
 
         OnWaveStarted?.Invoke(waves);
+        OnUpdatedCurrentEnemies?.Invoke(currentEnemiesInWave);
     }
 
     public void UpdateWaveState()
     {
         currentEnemiesInWave--;
+
+        OnUpdatedCurrentEnemies?.Invoke(currentEnemiesInWave);
 
         if (currentEnemiesInWave <= 0)
         {

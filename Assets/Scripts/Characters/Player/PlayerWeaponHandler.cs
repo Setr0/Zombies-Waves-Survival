@@ -90,7 +90,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         int neededAmmos = maxAmmosInUse - ammosInUse;
 
-        if (maxAmmosInUse >= neededAmmos && neededAmmos < ammos)
+        if (neededAmmos < ammos)
         {
             ammosInUse += neededAmmos;
 
@@ -98,7 +98,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         }
         else
         {
-            ammosInUse = ammos;
+            ammosInUse += ammos;
 
             ammos = 0;
         }
