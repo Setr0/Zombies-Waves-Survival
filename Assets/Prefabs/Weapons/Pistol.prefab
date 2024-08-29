@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 11400000, guid: 648d234f868750345a24a3d42bc4a18a, type: 2}
+  spriteRenderer: {fileID: 7442015398551184818}
   bulletSpawnPoint: {fileID: 8519707436501197638}
   muzzleFlash: {fileID: 124505144002369745}
   canShoot: 0

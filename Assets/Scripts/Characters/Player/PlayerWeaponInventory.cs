@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerWeaponInventory : MonoBehaviour
 {
+    public delegate void InventoryHandler(Weapon weapon);
+    public event InventoryHandler OnInventoryChanged;
+
     PlayerWeaponHandler playerWeaponHandler;
 
     List<Weapon> weapons;
@@ -12,13 +15,15 @@ public class PlayerWeaponInventory : MonoBehaviour
     {
         playerWeaponHandler = GetComponent<PlayerWeaponHandler>();
 
-        weapons = new List<Weapon>(){
-            playerWeaponHandler.currentWeapon
-        };
+        weapons = new List<Weapon>();
+
+        AddWeapon(playerWeaponHandler.currentWeapon);
     }
 
     public void AddWeapon(Weapon weapon)
     {
         weapons.Add(weapon);
+
+        OnInventoryChanged?.Invoke(weapon);
     }
 }

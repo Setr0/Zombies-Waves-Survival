@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public WeaponObject weaponObject;
+    public SpriteRenderer spriteRenderer;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] GameObject muzzleFlash;
 
