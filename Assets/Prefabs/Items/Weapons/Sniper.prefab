@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 454525736163313494}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.043754578, y: -0.014499664, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.375, z: 1}
+  m_LocalPosition: {x: 0, y: -0.055, z: 0}
+  m_LocalScale: {x: 1, y: 0.375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7983115042981694398}
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 1511147079390195161}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1142270419, guid: d6fa69e19360cdc4f8ad68280cd738d4, type: 3}
+  m_Sprite: {fileID: -835853008, guid: d6fa69e19360cdc4f8ad68280cd738d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 8601607373124192887}
   - component: {fileID: 3771608525525624523}
   m_Layer: 0
-  m_Name: RevolverItem
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ Animator:
   m_GameObject: {fileID: 1865631961002278486}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 070a2e685707f43409ca278a494e6943, type: 2}
+  m_Controller: {fileID: 9100000, guid: 070fee2b1d027fe47a5293d76b1c5ed2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -325,5 +325,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076381a0a120a7146af0c7f5434d1ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: RevolverItem
-  weapon: {fileID: 592202618334245805, guid: f5641b4699b66114392161a6cec3e28e, type: 3}
+  id: SniperItem
+  weapon: {fileID: 888639535603853076, guid: fd912788762113445a0324f67aedf497, type: 3}
