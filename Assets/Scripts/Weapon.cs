@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    Animator animator;
+
     public string id = "Pistol";
 
     [Space(20)]
@@ -15,6 +17,11 @@ public class Weapon : MonoBehaviour
     Vector2 direction;
 
     public bool canShoot;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void OnEnable()
     {
@@ -35,6 +42,8 @@ public class Weapon : MonoBehaviour
         bullet.GetComponent<Bullet>().pierce = weaponObject.stats.pierce;
 
         muzzleFlash.SetActive(true);
+
+        animator.SetTrigger("Shoot");
 
         canShoot = false;
         StartCoroutine(ShootDelay());

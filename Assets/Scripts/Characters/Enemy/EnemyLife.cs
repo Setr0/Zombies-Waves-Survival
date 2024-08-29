@@ -10,11 +10,7 @@ public class EnemyLife : CharacterLife
 
     [SerializeField] string id;
     [SerializeField] string[] dropIds;
-
-    void OnEnable()
-    {
-        health = maxHealth;
-    }
+    [SerializeField] string[] weaponIds;
 
     public override void Damaged()
     {
@@ -37,10 +33,14 @@ public class EnemyLife : CharacterLife
         animator.SetTrigger("Restore");
         isTakingHit = false;
         isDying = false;
+        health = maxHealth;
 
         OnRestored?.Invoke();
 
-        PoolManager.Instance.Instantiate(dropIds[Random.Range(0, dropIds.Length)], transform.position, Quaternion.identity);
+        if (Random.Range(0, 11) <= 7)
+            PoolManager.Instance.Instantiate(dropIds[Random.Range(0, dropIds.Length)], transform.position, Quaternion.identity);
+        else
+            PoolManager.Instance.Instantiate(weaponIds[Random.Range(0, weaponIds.Length)], transform.position, Quaternion.identity);
 
         gameObject.SetActive(false);
 

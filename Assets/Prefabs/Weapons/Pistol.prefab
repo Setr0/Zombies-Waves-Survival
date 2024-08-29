@@ -208,6 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7611492070204620896}
+  - component: {fileID: 8765378330680652117}
   - component: {fileID: 3943366669359168830}
   m_Layer: 0
   m_Name: Pistol
@@ -234,6 +235,27 @@ Transform:
   - {fileID: 7829219698011830777}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8765378330680652117
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8156876009718547939}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6d9a70c761a6d24bb3279b47aeb9a00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3943366669359168830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956f88c7b97054a4884b960fbeb1aa3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: Pistol
   weaponObject: {fileID: 11400000, guid: 648d234f868750345a24a3d42bc4a18a, type: 2}
   spriteRenderer: {fileID: 7442015398551184818}
   bulletSpawnPoint: {fileID: 8519707436501197638}

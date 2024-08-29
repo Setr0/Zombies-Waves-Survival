@@ -237,6 +237,14 @@ MonoBehaviour:
   id: Zombie
   dropIds:
   - AmmosSack
+  weaponIds:
+  - AK-47Item
+  - MGItem
+  - RevolverItem
+  - ShotgunItem
+  - SMGItem
+  - SniperItem
+  - UZIItem
 --- !u!114 &8074550266760465147
 MonoBehaviour:
   m_ObjectHideFlags: 0

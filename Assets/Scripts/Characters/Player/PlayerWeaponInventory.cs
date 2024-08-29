@@ -25,6 +25,19 @@ public class PlayerWeaponInventory : MonoBehaviour
         currentIndex = 0;
     }
 
+    public bool IsInPosses(string id)
+    {
+        for (int i = 0; i < weaponsInPosses.Count; i++)
+        {
+            if (weaponsInPosses[i].id == id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void AddWeapon(Weapon weapon)
     {
         for (int i = 0; i < weapons.Length; i++)
@@ -53,5 +66,7 @@ public class PlayerWeaponInventory : MonoBehaviour
         weaponsInPosses[index].gameObject.SetActive(true);
 
         currentIndex = index;
+
+        playerWeaponHandler.AmmosChanged();
     }
 }

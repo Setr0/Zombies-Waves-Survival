@@ -325,5 +325,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076381a0a120a7146af0c7f5434d1ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: UziItem
+  id: UZIItem
   weapon: {fileID: 888639535603853076, guid: 31fe40fa9e441444387f381e1d3fe0c7, type: 3}

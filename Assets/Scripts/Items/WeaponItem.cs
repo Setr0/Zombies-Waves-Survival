@@ -20,6 +20,8 @@ public class WeaponItem : Item
 
     protected override void PickUp(Collider2D collision)
     {
+        if (collision.GetComponent<PlayerWeaponInventory>().IsInPosses(weapon.id)) return;
+
         collision.GetComponent<PlayerWeaponInventory>().AddWeapon(weapon);
 
         isPickingUp = true;

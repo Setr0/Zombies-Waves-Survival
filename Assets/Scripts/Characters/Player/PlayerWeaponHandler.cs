@@ -11,6 +11,9 @@ public class PlayerWeaponHandler : MonoBehaviour
     public delegate void AmmosHandler(int ammos, int ammosInUse);
     public event AmmosHandler OnAmmosChanged;
 
+    public delegate void ReloadHandler(bool isReloading);
+    public event ReloadHandler OnReloadingChanged;
+
     Camera mainCamera;
 
     public Weapon currentWeapon;
@@ -21,22 +24,20 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     [SerializeField] float offset = 180f;
 
-    [Space(20)]
-    [SerializeField] int ammos = 99;
-    [SerializeField] int ammosInUse = 10;
-    int maxAmmosInUse;
-
     bool isReloading;
+    bool isFiring;
 
     void Start()
     {
         mainCamera = Camera.main;
 
-        maxAmmosInUse = ammosInUse;
+        currentWeapon.weaponObject.stats.ammos = currentWeapon.weaponObject.stats.defaultAmmos;
+        currentWeapon.weaponObject.stats.ammosInUse = currentWeapon.weaponObject.stats.maxAmmosInUse;
 
-        OnAmmosChanged?.Invoke(ammos, ammosInUse);
+        AmmosChanged();
 
         isReloading = false;
+        isFiring = false;
     }
 
     void Update()
@@ -44,6 +45,8 @@ public class PlayerWeaponHandler : MonoBehaviour
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         Rotate();
+
+        if (isFiring && !isReloading) Shoot();
     }
 
     void Rotate()
@@ -54,66 +57,81 @@ public class PlayerWeaponHandler : MonoBehaviour
         float angle = Mathf.Atan2(rotationDirection.y, rotationDirection.x) * Mathf.Rad2Deg;
         weaponContainer.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
 
-        if (mousePosition.x < weaponContainer.position.x)
+        if (Mathf.Abs(mousePosition.x - weaponContainer.position.x) > 0.25f)
         {
-            weaponContainer.localScale = new Vector3(-1, -1, 1);
+            if (mousePosition.x < weaponContainer.position.x)
+            {
+                weaponContainer.localScale = new Vector3(-1, -1, 1);
 
-            OnFlipped?.Invoke(false);
-        }
-        else
-        {
-            weaponContainer.localScale = new Vector3(1, 1, 1);
+                OnFlipped?.Invoke(false);
+            }
+            else
+            {
+                weaponContainer.localScale = new Vector3(1, 1, 1);
 
-            OnFlipped?.Invoke(true);
+                OnFlipped?.Invoke(true);
+            }
         }
     }
 
-    public void Shoot()
+    public void SetIsFiring(bool isFiring)
     {
-        if (ammosInUse <= 0 || !currentWeapon.canShoot || isReloading) return;
+        this.isFiring = isFiring;
+    }
+
+    void Shoot()
+    {
+        if (currentWeapon.weaponObject.stats.ammosInUse <= 0 || !currentWeapon.canShoot || isReloading) return;
 
         currentWeapon.SpawnBullet();
 
-        ammosInUse--;
+        currentWeapon.weaponObject.stats.ammosInUse--;
 
-        OnAmmosChanged?.Invoke(ammos, ammosInUse);
+        AmmosChanged();
 
-        if (ammosInUse <= 0)
+        if (currentWeapon.weaponObject.stats.ammosInUse <= 0)
             StartCoroutine(ReloadWeapon());
     }
 
     public IEnumerator ReloadWeapon()
     {
-        if (ammos <= 0) yield break;
+        if (currentWeapon.weaponObject.stats.ammos <= 0 || isFiring || isReloading) yield break;
 
         isReloading = true;
+        OnReloadingChanged?.Invoke(true);
 
-        int neededAmmos = maxAmmosInUse - ammosInUse;
+        int neededAmmos = currentWeapon.weaponObject.stats.maxAmmosInUse - currentWeapon.weaponObject.stats.ammosInUse;
 
-        if (neededAmmos < ammos)
+        if (neededAmmos < currentWeapon.weaponObject.stats.ammos)
         {
-            ammosInUse += neededAmmos;
+            currentWeapon.weaponObject.stats.ammosInUse += neededAmmos;
 
-            ammos -= neededAmmos;
+            currentWeapon.weaponObject.stats.ammos -= neededAmmos;
         }
         else
         {
-            ammosInUse += ammos;
+            currentWeapon.weaponObject.stats.ammosInUse += currentWeapon.weaponObject.stats.ammos;
 
-            ammos = 0;
+            currentWeapon.weaponObject.stats.ammos = 0;
         }
 
         yield return new WaitForSeconds(currentWeapon.weaponObject.stats.realoadTime);
 
-        OnAmmosChanged?.Invoke(ammos, ammosInUse);
+        AmmosChanged();
 
         isReloading = false;
+        OnReloadingChanged?.Invoke(false);
     }
 
     public void AddAmmos(int ammos)
     {
-        this.ammos += ammos;
+        currentWeapon.weaponObject.stats.ammos += ammos;
 
-        OnAmmosChanged?.Invoke(this.ammos, ammosInUse);
+        AmmosChanged();
+    }
+
+    public void AmmosChanged()
+    {
+        OnAmmosChanged?.Invoke(currentWeapon.weaponObject.stats.ammos, currentWeapon.weaponObject.stats.ammosInUse);
     }
 }

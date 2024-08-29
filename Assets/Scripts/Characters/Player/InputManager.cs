@@ -31,7 +31,8 @@ public class InputManager : MonoBehaviour
         playerInputAction.Player.Move.performed += Move;
         playerInputAction.Player.Move.canceled += Move;
 
-        playerInputAction.Player.Shoot.performed += Shoot;
+        playerInputAction.Player.Shoot.performed += Fire;
+        playerInputAction.Player.Shoot.canceled += DontFire;
 
         playerInputAction.Player.Reload.performed += Reload;
 
@@ -52,7 +53,8 @@ public class InputManager : MonoBehaviour
         playerInputAction.Player.Move.performed -= Move;
         playerInputAction.Player.Move.canceled -= Move;
 
-        playerInputAction.Player.Shoot.performed -= Shoot;
+        playerInputAction.Player.Shoot.performed -= Fire;
+        playerInputAction.Player.Shoot.canceled -= DontFire;
 
         playerInputAction.Player.Reload.performed -= Reload;
 
@@ -71,9 +73,14 @@ public class InputManager : MonoBehaviour
         characterMovement.SetDirection(context.ReadValue<Vector2>());
     }
 
-    void Shoot(InputAction.CallbackContext context)
+    void Fire(InputAction.CallbackContext context)
     {
-        playerWeaponHandler.Shoot();
+        playerWeaponHandler.SetIsFiring(true);
+    }
+
+    void DontFire(InputAction.CallbackContext context)
+    {
+        playerWeaponHandler.SetIsFiring(false);
     }
 
     void Reload(InputAction.CallbackContext context)
