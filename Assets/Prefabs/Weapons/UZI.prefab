@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956f88c7b97054a4884b960fbeb1aa3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: UZI
   weaponObject: {fileID: 11400000, guid: 491c54ef59030c34ba9621299e83ef55, type: 2}
   spriteRenderer: {fileID: 2641425847271091193}
   bulletSpawnPoint: {fileID: 2529955783740456408}

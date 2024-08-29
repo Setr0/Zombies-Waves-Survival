@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956f88c7b97054a4884b960fbeb1aa3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: Sniper
   weaponObject: {fileID: 11400000, guid: 3bc6067ebf3025449bf77da54fd45421, type: 2}
   spriteRenderer: {fileID: 2641425847271091193}
   bulletSpawnPoint: {fileID: 2529955783740456408}

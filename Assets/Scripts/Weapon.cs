@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public string id = "Pistol";
+
+    [Space(20)]
     public WeaponObject weaponObject;
     public SpriteRenderer spriteRenderer;
     [SerializeField] Transform bulletSpawnPoint;
@@ -13,9 +16,10 @@ public class Weapon : MonoBehaviour
 
     public bool canShoot;
 
-    void Start()
+    void OnEnable()
     {
         canShoot = true;
+        muzzleFlash.SetActive(false);
     }
 
     public void SpawnBullet()

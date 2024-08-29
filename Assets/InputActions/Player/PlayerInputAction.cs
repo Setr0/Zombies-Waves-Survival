@@ -53,6 +53,78 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSpace1"",
+                    ""type"": ""Button"",
+                    ""id"": ""abac9768-0612-40ed-96b0-8c64c2958193"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSpace2"",
+                    ""type"": ""Button"",
+                    ""id"": ""2b7664f4-faba-4744-b70e-07bafe094108"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSpace3"",
+                    ""type"": ""Button"",
+                    ""id"": ""31e26058-00b3-4fbc-aac0-30a3eb5acd7d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSpace4"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6c5d3a8-6ef9-49d9-a492-e86d3a00f40f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSpace5"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8dfeb4c-400a-4008-be04-577f6c01507a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSpace6"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f92e738-2d52-4c7f-8a69-e2c626a05970"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSpace7"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5b07aa4-3147-4520-82d3-9436760ff53d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSpace8"",
+                    ""type"": ""Button"",
+                    ""id"": ""34dedf09-502a-4da7-8d4b-d41cfb358f78"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -143,6 +215,94 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""63eeaae6-d2e8-4da8-a403-3a22a88446af"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSpace1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a36aa74-a716-4e91-98fd-6d27b4177155"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSpace2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d4ceac7-10df-4703-a081-2fadd2482730"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSpace3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6a2c78c-2c84-46c3-ab18-b69b2b30dde2"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSpace4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e902d5d-df1a-4683-815c-bbf52e269169"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSpace5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cba21e71-923e-40fa-84e3-ee78dd5a85cf"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSpace6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51e8145a-acfe-412b-aa05-aeefe2183365"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSpace7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b3117ee-cc65-4d4d-a906-2b15d46ce0a3"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSpace8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -182,6 +342,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
+        m_Player_SelectSpace1 = m_Player.FindAction("SelectSpace1", throwIfNotFound: true);
+        m_Player_SelectSpace2 = m_Player.FindAction("SelectSpace2", throwIfNotFound: true);
+        m_Player_SelectSpace3 = m_Player.FindAction("SelectSpace3", throwIfNotFound: true);
+        m_Player_SelectSpace4 = m_Player.FindAction("SelectSpace4", throwIfNotFound: true);
+        m_Player_SelectSpace5 = m_Player.FindAction("SelectSpace5", throwIfNotFound: true);
+        m_Player_SelectSpace6 = m_Player.FindAction("SelectSpace6", throwIfNotFound: true);
+        m_Player_SelectSpace7 = m_Player.FindAction("SelectSpace7", throwIfNotFound: true);
+        m_Player_SelectSpace8 = m_Player.FindAction("SelectSpace8", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -246,6 +414,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Reload;
+    private readonly InputAction m_Player_SelectSpace1;
+    private readonly InputAction m_Player_SelectSpace2;
+    private readonly InputAction m_Player_SelectSpace3;
+    private readonly InputAction m_Player_SelectSpace4;
+    private readonly InputAction m_Player_SelectSpace5;
+    private readonly InputAction m_Player_SelectSpace6;
+    private readonly InputAction m_Player_SelectSpace7;
+    private readonly InputAction m_Player_SelectSpace8;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -253,6 +429,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
+        public InputAction @SelectSpace1 => m_Wrapper.m_Player_SelectSpace1;
+        public InputAction @SelectSpace2 => m_Wrapper.m_Player_SelectSpace2;
+        public InputAction @SelectSpace3 => m_Wrapper.m_Player_SelectSpace3;
+        public InputAction @SelectSpace4 => m_Wrapper.m_Player_SelectSpace4;
+        public InputAction @SelectSpace5 => m_Wrapper.m_Player_SelectSpace5;
+        public InputAction @SelectSpace6 => m_Wrapper.m_Player_SelectSpace6;
+        public InputAction @SelectSpace7 => m_Wrapper.m_Player_SelectSpace7;
+        public InputAction @SelectSpace8 => m_Wrapper.m_Player_SelectSpace8;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -271,6 +455,30 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
+            @SelectSpace1.started += instance.OnSelectSpace1;
+            @SelectSpace1.performed += instance.OnSelectSpace1;
+            @SelectSpace1.canceled += instance.OnSelectSpace1;
+            @SelectSpace2.started += instance.OnSelectSpace2;
+            @SelectSpace2.performed += instance.OnSelectSpace2;
+            @SelectSpace2.canceled += instance.OnSelectSpace2;
+            @SelectSpace3.started += instance.OnSelectSpace3;
+            @SelectSpace3.performed += instance.OnSelectSpace3;
+            @SelectSpace3.canceled += instance.OnSelectSpace3;
+            @SelectSpace4.started += instance.OnSelectSpace4;
+            @SelectSpace4.performed += instance.OnSelectSpace4;
+            @SelectSpace4.canceled += instance.OnSelectSpace4;
+            @SelectSpace5.started += instance.OnSelectSpace5;
+            @SelectSpace5.performed += instance.OnSelectSpace5;
+            @SelectSpace5.canceled += instance.OnSelectSpace5;
+            @SelectSpace6.started += instance.OnSelectSpace6;
+            @SelectSpace6.performed += instance.OnSelectSpace6;
+            @SelectSpace6.canceled += instance.OnSelectSpace6;
+            @SelectSpace7.started += instance.OnSelectSpace7;
+            @SelectSpace7.performed += instance.OnSelectSpace7;
+            @SelectSpace7.canceled += instance.OnSelectSpace7;
+            @SelectSpace8.started += instance.OnSelectSpace8;
+            @SelectSpace8.performed += instance.OnSelectSpace8;
+            @SelectSpace8.canceled += instance.OnSelectSpace8;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -284,6 +492,30 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
+            @SelectSpace1.started -= instance.OnSelectSpace1;
+            @SelectSpace1.performed -= instance.OnSelectSpace1;
+            @SelectSpace1.canceled -= instance.OnSelectSpace1;
+            @SelectSpace2.started -= instance.OnSelectSpace2;
+            @SelectSpace2.performed -= instance.OnSelectSpace2;
+            @SelectSpace2.canceled -= instance.OnSelectSpace2;
+            @SelectSpace3.started -= instance.OnSelectSpace3;
+            @SelectSpace3.performed -= instance.OnSelectSpace3;
+            @SelectSpace3.canceled -= instance.OnSelectSpace3;
+            @SelectSpace4.started -= instance.OnSelectSpace4;
+            @SelectSpace4.performed -= instance.OnSelectSpace4;
+            @SelectSpace4.canceled -= instance.OnSelectSpace4;
+            @SelectSpace5.started -= instance.OnSelectSpace5;
+            @SelectSpace5.performed -= instance.OnSelectSpace5;
+            @SelectSpace5.canceled -= instance.OnSelectSpace5;
+            @SelectSpace6.started -= instance.OnSelectSpace6;
+            @SelectSpace6.performed -= instance.OnSelectSpace6;
+            @SelectSpace6.canceled -= instance.OnSelectSpace6;
+            @SelectSpace7.started -= instance.OnSelectSpace7;
+            @SelectSpace7.performed -= instance.OnSelectSpace7;
+            @SelectSpace7.canceled -= instance.OnSelectSpace7;
+            @SelectSpace8.started -= instance.OnSelectSpace8;
+            @SelectSpace8.performed -= instance.OnSelectSpace8;
+            @SelectSpace8.canceled -= instance.OnSelectSpace8;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -324,5 +556,13 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnSelectSpace1(InputAction.CallbackContext context);
+        void OnSelectSpace2(InputAction.CallbackContext context);
+        void OnSelectSpace3(InputAction.CallbackContext context);
+        void OnSelectSpace4(InputAction.CallbackContext context);
+        void OnSelectSpace5(InputAction.CallbackContext context);
+        void OnSelectSpace6(InputAction.CallbackContext context);
+        void OnSelectSpace7(InputAction.CallbackContext context);
+        void OnSelectSpace8(InputAction.CallbackContext context);
     }
 }
