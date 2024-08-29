@@ -11,6 +11,11 @@ public class EnemyLife : CharacterLife
     [SerializeField] string id;
     [SerializeField] string[] dropIds;
 
+    void OnEnable()
+    {
+        health = maxHealth;
+    }
+
     public override void Damaged()
     {
         base.Damaged();
