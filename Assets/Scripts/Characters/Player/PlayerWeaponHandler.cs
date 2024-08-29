@@ -25,6 +25,8 @@ public class PlayerWeaponHandler : MonoBehaviour
     [SerializeField] float offset = 180f;
 
     bool isReloading;
+
+    public bool canFire;
     bool isFiring;
 
     void Start()
@@ -38,6 +40,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         isReloading = false;
         isFiring = false;
+        canFire = true;
     }
 
     void Update()
@@ -76,6 +79,8 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void SetIsFiring(bool isFiring)
     {
+        if (!canFire) return;
+
         this.isFiring = isFiring;
     }
 
@@ -90,7 +95,11 @@ public class PlayerWeaponHandler : MonoBehaviour
         AmmosChanged();
 
         if (currentWeapon.weaponObject.stats.ammosInUse <= 0)
+        {
+            canFire = false;
+            isFiring = false;
             StartCoroutine(ReloadWeapon());
+        }
     }
 
     public IEnumerator ReloadWeapon()
@@ -120,6 +129,7 @@ public class PlayerWeaponHandler : MonoBehaviour
         AmmosChanged();
 
         isReloading = false;
+        canFire = true;
         OnReloadingChanged?.Invoke(false);
     }
 

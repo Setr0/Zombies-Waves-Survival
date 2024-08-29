@@ -63,6 +63,7 @@ public class PlayerWeaponInventory : MonoBehaviour
         }
 
         playerWeaponHandler.currentWeapon = weaponsInPosses[index];
+        playerWeaponHandler.canFire = true;
         weaponsInPosses[index].gameObject.SetActive(true);
 
         currentIndex = index;
