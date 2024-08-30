@@ -104,7 +104,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public IEnumerator ReloadWeapon()
     {
-        if (currentWeapon.weaponObject.stats.ammos <= 0 || isFiring || isReloading) yield break;
+        if (currentWeapon.weaponObject.stats.ammos <= 0 || currentWeapon.weaponObject.stats.ammosInUse >= currentWeapon.weaponObject.stats.maxAmmosInUse || isFiring || isReloading) yield break;
 
         isReloading = true;
         OnReloadingChanged?.Invoke(true);

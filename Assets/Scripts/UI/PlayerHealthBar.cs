@@ -26,12 +26,14 @@ public class PlayerHealthBar : MonoBehaviour
     {
         playerLife.OnDamaged += UpdateHealthBar;
         playerLife.OnDied += UpdateHealthBar;
+        playerLife.OnTookHealth += UpdateHealthBar;
     }
 
     void OnDisable()
     {
         playerLife.OnDamaged -= UpdateHealthBar;
         playerLife.OnDied -= UpdateHealthBar;
+        playerLife.OnTookHealth -= UpdateHealthBar;
     }
 
     void UpdateHealthBar(float health)

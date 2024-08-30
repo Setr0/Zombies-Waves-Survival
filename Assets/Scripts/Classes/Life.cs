@@ -17,7 +17,7 @@ public abstract class Life : MonoBehaviour
     protected bool isTakingHit;
     protected bool isDying;
 
-    void Awake()
+    protected virtual void Awake()
     {
         maxHealth = health;
 
