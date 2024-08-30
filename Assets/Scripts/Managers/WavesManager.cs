@@ -24,7 +24,7 @@ public class WavesManager : MonoBehaviour
     public delegate void EnemiesHandler(int enemies);
     public event EnemiesHandler OnUpdatedCurrentEnemies;
 
-    [SerializeField] Spawner spawner;
+    [SerializeField] EnemySpawner enemySpawner;
 
     [SerializeField] int enemiesInWave = 10;
     int currentEnemiesInWave;
@@ -47,9 +47,11 @@ public class WavesManager : MonoBehaviour
         waves++;
         currentEnemiesInWave = enemiesInWave;
 
-        spawner.amount = currentEnemiesInWave;
+        enemySpawner.amount = currentEnemiesInWave;
 
-        spawner.Spawn();
+        if (waves % 2 == 0) enemySpawner.health += 3;
+
+        enemySpawner.Spawn();
 
         OnWaveStarted?.Invoke(waves);
         OnUpdatedCurrentEnemies?.Invoke(currentEnemiesInWave);

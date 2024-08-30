@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Spawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] string[] ids;
+    [SerializeField] string enemyId;
     public int amount = 1;
-
-    [Space(10)]
-    [SerializeField] Vector2 distance = new Vector2(30f, 30f);
+    public int health = 1;
+    [SerializeField] float distance = 30f;
 
     [Space(10)]
     [SerializeField] Tilemap grassTilemap;
@@ -54,7 +53,7 @@ public class Spawner : MonoBehaviour
             List<Vector2> nearTiles = new List<Vector2>();
             foreach (Vector2 position in grassTilesPositions)
             {
-                if (Vector2.Distance(position, player.position) < 30)
+                if (Vector2.Distance(position, player.position) < distance)
                 {
                     nearTiles.Add(position);
                 }
@@ -63,12 +62,10 @@ public class Spawner : MonoBehaviour
             Vector2 randomPosition = nearTiles[Random.Range(0, nearTiles.Count)];
             Vector2 randomPositionToViewportPoint = mainCamera.WorldToViewportPoint(randomPosition);
 
-            string randomId = ids[Random.Range(0, ids.Length)];
-
             if (randomPositionToViewportPoint.x < 0 || randomPositionToViewportPoint.x > 1
             || randomPositionToViewportPoint.y < 0 || randomPositionToViewportPoint.y > 1)
             {
-                InstantiatePrefab(randomId, randomPosition);
+                InstantiatePrefab(enemyId, randomPosition);
             }
             else
             {
@@ -80,6 +77,8 @@ public class Spawner : MonoBehaviour
 
     void InstantiatePrefab(string id, Vector2 spawnPosition)
     {
-        PoolManager.Instance.Instantiate(id, spawnPosition);
+        GameObject newEnemy = PoolManager.Instance.Instantiate(id, spawnPosition);
+        newEnemy.GetComponent<EnemyLife>().maxHealth = health;
+        newEnemy.GetComponent<EnemyLife>().health = health;
     }
 }
