@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Life : MonoBehaviour
 {
-    public delegate void LifeHandler();
+    public delegate void LifeHandler(float health);
     public event LifeHandler OnDamaged;
     public event LifeHandler OnDied;
 
@@ -17,7 +17,7 @@ public abstract class Life : MonoBehaviour
     protected bool isTakingHit;
     protected bool isDying;
 
-    protected virtual void Start()
+    void Awake()
     {
         maxHealth = health;
 
@@ -33,7 +33,7 @@ public abstract class Life : MonoBehaviour
 
         if (health > 0)
         {
-            OnDamaged?.Invoke();
+            OnDamaged?.Invoke(health);
 
             Damaged();
 
@@ -42,7 +42,7 @@ public abstract class Life : MonoBehaviour
         }
         else
         {
-            OnDied?.Invoke();
+            OnDied?.Invoke(health);
 
             Die();
 

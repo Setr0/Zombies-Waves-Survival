@@ -8,10 +8,8 @@ public class CharacterLife : Life
     SpriteRenderer spriteRenderer;
     protected Animator animator;
 
-    protected override void Start()
+    protected virtual void Start()
     {
-        base.Start();
-
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }

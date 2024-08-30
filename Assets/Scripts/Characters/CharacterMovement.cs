@@ -37,7 +37,7 @@ public class CharacterMovement : MonoBehaviour
         life.OnDied -= Disable;
     }
 
-    void Disable()
+    void Disable(float health)
     {
         isEnabled = false;
     }

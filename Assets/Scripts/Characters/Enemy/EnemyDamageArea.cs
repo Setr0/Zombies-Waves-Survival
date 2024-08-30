@@ -42,7 +42,7 @@ public class EnemyDamageArea : MonoBehaviour
         enemyLife.OnRestored -= Enable;
     }
 
-    void Disable()
+    void Disable(float health)
     {
         isEnabled = false;
     }
