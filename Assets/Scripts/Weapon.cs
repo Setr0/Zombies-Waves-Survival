@@ -56,6 +56,8 @@ public class Weapon : MonoBehaviour
 
         animator.SetTrigger("Shoot");
 
+        AudioManager.Instance.PlaySound("Shot");
+
         canShoot = false;
         StartCoroutine(ShootDelay());
     }

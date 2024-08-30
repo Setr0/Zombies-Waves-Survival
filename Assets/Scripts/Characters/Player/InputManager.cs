@@ -6,14 +6,25 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterMovement), typeof(PlayerWeaponHandler))]
 public class InputManager : MonoBehaviour
 {
+    public static InputManager Instance { get; private set; }
+
     CharacterMovement characterMovement;
     PlayerWeaponHandler playerWeaponHandler;
     PlayerWeaponInventory playerWeaponInventory;
 
-    PlayerInputAction playerInputAction;
+    public PlayerInputAction playerInputAction;
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         playerInputAction = new PlayerInputAction();
     }
 

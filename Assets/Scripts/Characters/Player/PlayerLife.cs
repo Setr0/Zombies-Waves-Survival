@@ -19,6 +19,13 @@ public class PlayerLife : CharacterLife
         wavesManager.OnWaveStarted -= RestoreHealth;
     }
 
+    public override void TakeDamage(float damage = 1)
+    {
+        base.TakeDamage(damage);
+
+        AudioManager.Instance.PlaySound("HittedPlayer");
+    }
+
     void RestoreHealth(int waves)
     {
         TakeHealth(maxHealth);

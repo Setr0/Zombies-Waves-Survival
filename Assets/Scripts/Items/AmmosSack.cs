@@ -22,6 +22,8 @@ public class AmmosSack : Item
 
         isPickingUp = true;
 
+        AudioManager.Instance.PlaySound("PickUpItem");
+
         animator.SetTrigger("Feedback");
     }
 

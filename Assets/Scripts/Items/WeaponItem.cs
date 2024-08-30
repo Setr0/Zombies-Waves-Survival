@@ -26,6 +26,8 @@ public class WeaponItem : Item
 
         isPickingUp = true;
 
+        AudioManager.Instance.PlaySound("PickUpItem");
+
         animator.SetTrigger("Feedback");
     }
 

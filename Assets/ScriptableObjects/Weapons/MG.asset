@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     damage: 3
-    fireRate: 0.25
-    ammos: 300
-    defaultAmmos: 300
-    maxAmmosInUse: 100
-    ammosInUse: 100
-    realoadTime: 0.35
+    realoadTime: 3
     pierce: 2
+    fireRate: 0.125
+    ammos: 212
+    defaultAmmos: 300
+    ammosInUse: 37
+    maxAmmosInUse: 100

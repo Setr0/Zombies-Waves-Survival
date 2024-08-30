@@ -27,8 +27,11 @@ public class GameManager : MonoBehaviour
     void Gameover(float health)
     {
         Time.timeScale = 0;
-
+        InputManager.Instance.playerInputAction.Player.Disable();
         Cursor.visible = true;
+
+        AudioManager.Instance.PlayMusic("Background", false);
+        AudioManager.Instance.PlayMusic("Gameover");
 
         playerPanel.SetActive(false);
         gameoverPanel.SetActive(true);

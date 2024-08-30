@@ -12,6 +12,13 @@ public class EnemyLife : CharacterLife
     [SerializeField] string[] dropIds;
     [SerializeField] string[] weaponIds;
 
+    public override void TakeDamage(float damage = 1)
+    {
+        base.TakeDamage(damage);
+
+        AudioManager.Instance.PlaySound("HittedEnemy");
+    }
+
     public override void Damaged()
     {
         base.Damaged();
