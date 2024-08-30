@@ -18,17 +18,20 @@ public class PlayerWeaponInventory : MonoBehaviour
 
     int currentIndex;
 
-    void Start()
+    void Awake()
     {
-        playerWeaponHandler = GetComponent<PlayerWeaponHandler>();
-
-        weaponsInPosses = new List<Weapon>();
-
         foreach (Weapon weapon in weapons)
         {
             weapon.weaponObject.stats.ammos = weapon.weaponObject.stats.defaultAmmos;
             weapon.weaponObject.stats.ammosInUse = weapon.weaponObject.stats.maxAmmosInUse;
         }
+    }
+
+    void Start()
+    {
+        playerWeaponHandler = GetComponent<PlayerWeaponHandler>();
+
+        weaponsInPosses = new List<Weapon>();
 
         AddWeapon(playerWeaponHandler.currentWeapon);
 

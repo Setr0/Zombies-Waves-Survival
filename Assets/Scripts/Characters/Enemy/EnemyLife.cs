@@ -23,14 +23,14 @@ public class EnemyLife : CharacterLife
     {
         base.Damaged();
 
-        if (Crosshair.Instance != null) Crosshair.Instance.SetHitted();
+        if (Crosshair.Instance != null && !MobileCommands.areEnabled) Crosshair.Instance.SetHitted();
     }
 
     public override void Die()
     {
         base.Die();
 
-        if (Crosshair.Instance != null) Crosshair.Instance.SetKilled();
+        if (Crosshair.Instance != null && !MobileCommands.areEnabled) Crosshair.Instance.SetKilled();
     }
 
     public override void OnDeathComplete()
