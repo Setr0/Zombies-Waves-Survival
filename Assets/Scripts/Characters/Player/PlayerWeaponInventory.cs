@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerWeaponInventory : MonoBehaviour
@@ -55,7 +56,7 @@ public class PlayerWeaponInventory : MonoBehaviour
     {
         index -= 1;
 
-        if (weaponsInPosses[index] == null || currentIndex == index) return;
+        if (weaponsInPosses.ElementAtOrDefault(index) == null || currentIndex == index) return;
 
         for (int i = 0; i < weapons.Length; i++)
         {
