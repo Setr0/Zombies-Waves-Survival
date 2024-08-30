@@ -22,6 +22,9 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        weaponObject.stats.ammos = weaponObject.stats.defaultAmmos;
+        weaponObject.stats.ammosInUse = weaponObject.stats.maxAmmosInUse;
     }
 
     void OnEnable()

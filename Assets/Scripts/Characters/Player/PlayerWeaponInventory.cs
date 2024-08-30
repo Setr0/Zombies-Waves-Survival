@@ -8,6 +8,9 @@ public class PlayerWeaponInventory : MonoBehaviour
     public delegate void InventoryHandler(Weapon weapon);
     public event InventoryHandler OnInventoryChanged;
 
+    public delegate void SelectionHandler(int index);
+    public event SelectionHandler OnSpaceSelected;
+
     PlayerWeaponHandler playerWeaponHandler;
 
     [SerializeField] Weapon[] weapons;
@@ -70,5 +73,7 @@ public class PlayerWeaponInventory : MonoBehaviour
         currentIndex = index;
 
         playerWeaponHandler.AmmosChanged();
+
+        OnSpaceSelected?.Invoke(index);
     }
 }

@@ -16,11 +16,13 @@ public class WeaponBarManager : MonoBehaviour
     void OnEnable()
     {
         playerWeaponInventory.OnInventoryChanged += AllocateWeapon;
+        playerWeaponInventory.OnSpaceSelected += SelectSpace;
     }
 
     void OnDisable()
     {
         playerWeaponInventory.OnInventoryChanged -= AllocateWeapon;
+        playerWeaponInventory.OnSpaceSelected -= SelectSpace;
     }
 
     void AllocateWeapon(Weapon weapon)
@@ -33,6 +35,14 @@ public class WeaponBarManager : MonoBehaviour
 
                 break;
             }
+        }
+    }
+
+    void SelectSpace(int index)
+    {
+        for (int i = 0; i < weaponBoxes.Length; i++)
+        {
+            weaponBoxes[i].Select(i == index);
         }
     }
 }
