@@ -36,9 +36,6 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         mobileDirection = Vector2.zero;
 
-        currentWeapon.weaponObject.stats.ammos = currentWeapon.weaponObject.stats.defaultAmmos;
-        currentWeapon.weaponObject.stats.ammosInUse = currentWeapon.weaponObject.stats.maxAmmosInUse;
-
         AmmosChanged();
 
         isReloading = false;
@@ -98,24 +95,39 @@ public class PlayerWeaponHandler : MonoBehaviour
         {
             if (mobileDirection.x < weaponContainer.localPosition.x)
             {
-                if (weaponContainer.localScale != new Vector3(-1, -1, 1)) currentWeapon.EnableTrace(false);
+                if (weaponContainer.localScale != new Vector3(-1, -1, 1))
+                {
+                    currentWeapon.EnableTrace(false);
+                    Flip(new Vector3(-1, -1, 1));
 
-                weaponContainer.localScale = new Vector3(-1, -1, 1);
+                    return;
+                }
 
-                OnFlipped?.Invoke(false);
+                Flip(new Vector3(-1, -1, 1));
             }
             else
             {
-                if (weaponContainer.localScale != new Vector3(1, 1, 1)) currentWeapon.EnableTrace(false);
+                if (weaponContainer.localScale != new Vector3(1, 1, 1))
+                {
+                    currentWeapon.EnableTrace(false);
+                    Flip(new Vector3(1, 1, 1));
 
-                weaponContainer.localScale = new Vector3(1, 1, 1);
+                    return;
+                }
 
-                OnFlipped?.Invoke(true);
+                Flip(new Vector3(1, 1, 1));
             }
         }
 
 
         if (MobileCommands.areEnabled && canFire) Shoot();
+    }
+
+    void Flip(Vector3 scale)
+    {
+        weaponContainer.localScale = scale;
+
+        OnFlipped?.Invoke(scale == new Vector3(1, 1, 1));
     }
 
     public void SetAiming(Vector2 direction)

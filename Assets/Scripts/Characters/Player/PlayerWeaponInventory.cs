@@ -24,6 +24,12 @@ public class PlayerWeaponInventory : MonoBehaviour
 
         weaponsInPosses = new List<Weapon>();
 
+        foreach (Weapon weapon in weapons)
+        {
+            weapon.weaponObject.stats.ammos = weapon.weaponObject.stats.defaultAmmos;
+            weapon.weaponObject.stats.ammosInUse = weapon.weaponObject.stats.maxAmmosInUse;
+        }
+
         AddWeapon(playerWeaponHandler.currentWeapon);
 
         currentIndex = 0;
