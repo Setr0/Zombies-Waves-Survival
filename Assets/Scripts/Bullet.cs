@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] string bulletId = "PistolBullet";
+
+    [Space(20)]
     [SerializeField] float speed = 15f;
     public int damage = 1;
     public int pierce = 1;
@@ -16,15 +19,22 @@ public class Bullet : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Disable();
+        if (!gameObject.activeSelf) return;
+
+        Disable(true);
     }
 
-    public void Disable()
+    public void Disable(bool ignorePierce = false)
     {
-        pierce--;
+        if (!ignorePierce)
+        {
+            pierce--;
 
-        if (pierce > 0) return;
+            if (pierce > 0) return;
+        }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+
+        PoolManager.Instance.AddToPool(bulletId, gameObject);
     }
 }

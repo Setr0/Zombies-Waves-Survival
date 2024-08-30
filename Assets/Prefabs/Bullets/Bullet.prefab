@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f3bf06d0f55c04d99370593e07a942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletId: Bullet
   speed: 15
   damage: 1
   pierce: 1

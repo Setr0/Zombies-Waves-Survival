@@ -15,9 +15,9 @@ MonoBehaviour:
   stats:
     damage: 3
     fireRate: 0.15
-    ammos: 45
-    defaultAmmos: 30
-    maxAmmosInUse: 10
-    ammosInUse: 10
+    ammos: 360
+    defaultAmmos: 360
+    maxAmmosInUse: 31
+    ammosInUse: 31
     realoadTime: 0.65
     pierce: 2

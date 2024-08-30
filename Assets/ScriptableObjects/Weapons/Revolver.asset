@@ -17,7 +17,7 @@ MonoBehaviour:
     fireRate: 0.85
     ammos: 30
     defaultAmmos: 30
-    maxAmmosInUse: 10
-    ammosInUse: 10
+    maxAmmosInUse: 6
+    ammosInUse: 6
     realoadTime: 0.7
     pierce: 1

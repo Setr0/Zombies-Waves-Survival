@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [Space(20)]
     public WeaponObject weaponObject;
     public SpriteRenderer spriteRenderer;
+    [SerializeField] string bulletId = "Bullet";
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] GameObject muzzleFlash;
 
@@ -35,7 +36,7 @@ public class Weapon : MonoBehaviour
 
         direction = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)bulletSpawnPoint.position).normalized;
 
-        GameObject bullet = PoolManager.Instance.Instantiate("Bullet",
+        GameObject bullet = PoolManager.Instance.Instantiate(bulletId,
                                                     bulletSpawnPoint.position, GetRotation(bulletSpawnPoint.position, direction));
         bullet.GetComponent<Bullet>().direction = direction;
         bullet.GetComponent<Bullet>().damage = weaponObject.stats.damage;

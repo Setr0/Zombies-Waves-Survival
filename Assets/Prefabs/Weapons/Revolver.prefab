@@ -187,6 +187,7 @@ MonoBehaviour:
   id: Revolver
   weaponObject: {fileID: 11400000, guid: d9b090239a8d4dc4abce03e3f06a1830, type: 2}
   spriteRenderer: {fileID: 8576557079525594423}
+  bulletId: Bullet
   bulletSpawnPoint: {fileID: 3648589142503164592}
   muzzleFlash: {fileID: 432169754679522270}
   canShoot: 0
