@@ -31,6 +31,8 @@ public class Crosshair : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
+
         transform.position = new Vector2(mainCamera.ScreenToWorldPoint(Input.mousePosition).x, mainCamera.ScreenToWorldPoint(Input.mousePosition).y);
 
         transform.Rotate(0, 0, 1);
