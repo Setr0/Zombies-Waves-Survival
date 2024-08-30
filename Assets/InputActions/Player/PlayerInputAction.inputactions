@@ -24,6 +24,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Aim",
+                    "type": "Value",
+                    "id": "9ac40955-98b8-42bf-9f05-f19b9b3dad30",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Reload",
                     "type": "Button",
                     "id": "8d012897-6a21-4b5a-a4b9-b2578c69ba91",
@@ -279,6 +288,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SelectSpace8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb64d30b-bcb2-43c7-b82d-ba1677b67ac3",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

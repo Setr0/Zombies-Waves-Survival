@@ -23,6 +23,13 @@ public class Crosshair : MonoBehaviour
 
     void Start()
     {
+        if (MobileCommands.areEnabled)
+        {
+            gameObject.SetActive(false);
+
+            return;
+        }
+
         animator = GetComponent<Animator>();
         mainCamera = Camera.main;
 

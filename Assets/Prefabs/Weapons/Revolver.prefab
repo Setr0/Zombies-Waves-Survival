@@ -115,6 +115,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 533121725917378969}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1116741532091506004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4080460032012064158}
+  m_Layer: 0
+  m_Name: DistancePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4080460032012064158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116741532091506004}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.574, y: 0.158, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 533121725917378969}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5623376771223935549
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +179,7 @@ Transform:
   m_Children:
   - {fileID: 1339499948481873663}
   - {fileID: 3648589142503164592}
+  - {fileID: 4080460032012064158}
   - {fileID: 537937154838057642}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -189,6 +221,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8576557079525594423}
   bulletId: Bullet
   bulletSpawnPoint: {fileID: 3648589142503164592}
+  distancePoint: {fileID: 4080460032012064158}
   muzzleFlash: {fileID: 432169754679522270}
   canShoot: 0
 --- !u!1 &8913785037384538973

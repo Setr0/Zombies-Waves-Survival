@@ -34,6 +34,9 @@ public class InputManager : MonoBehaviour
         playerInputAction.Player.Shoot.performed += Fire;
         playerInputAction.Player.Shoot.canceled += DontFire;
 
+        playerInputAction.Player.Aim.performed += Aim;
+        playerInputAction.Player.Aim.canceled += Aim;
+
         playerInputAction.Player.Reload.performed += Reload;
 
         playerInputAction.Player.SelectSpace1.performed += SelectSpace1;
@@ -55,6 +58,9 @@ public class InputManager : MonoBehaviour
 
         playerInputAction.Player.Shoot.performed -= Fire;
         playerInputAction.Player.Shoot.canceled -= DontFire;
+
+        playerInputAction.Player.Aim.performed -= Aim;
+        playerInputAction.Player.Aim.canceled -= Aim;
 
         playerInputAction.Player.Reload.performed -= Reload;
 
@@ -81,6 +87,11 @@ public class InputManager : MonoBehaviour
     void DontFire(InputAction.CallbackContext context)
     {
         playerWeaponHandler.SetIsFiring(false);
+    }
+
+    void Aim(InputAction.CallbackContext context)
+    {
+        playerWeaponHandler.SetAiming(context.ReadValue<Vector2>());
     }
 
     void Reload(InputAction.CallbackContext context)

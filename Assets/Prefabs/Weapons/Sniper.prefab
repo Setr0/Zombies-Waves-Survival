@@ -84,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!1 &2459798759436110199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4164689962683928356}
+  m_Layer: 0
+  m_Name: DistancePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4164689962683928356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459798759436110199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9952, y: 0.1681, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 707453075041729100}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3527769265661139216
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +263,7 @@ Transform:
   m_Children:
   - {fileID: 1144598078298774156}
   - {fileID: 2529955783740456408}
+  - {fileID: 4164689962683928356}
   - {fileID: 842254925215122295}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -273,5 +305,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2641425847271091193}
   bulletId: SniperBullet
   bulletSpawnPoint: {fileID: 2529955783740456408}
+  distancePoint: {fileID: 4164689962683928356}
   muzzleFlash: {fileID: 3527769265661139216}
   canShoot: 0

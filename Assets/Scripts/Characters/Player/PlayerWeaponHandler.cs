@@ -21,6 +21,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     Vector2 mousePosition;
     Vector2 aimDirection;
+    Vector2 mobileDirection;
 
     [SerializeField] float offset = 180f;
 
@@ -32,6 +33,8 @@ public class PlayerWeaponHandler : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+
+        mobileDirection = Vector2.zero;
 
         currentWeapon.weaponObject.stats.ammos = currentWeapon.weaponObject.stats.defaultAmmos;
         currentWeapon.weaponObject.stats.ammosInUse = currentWeapon.weaponObject.stats.maxAmmosInUse;
@@ -54,32 +57,75 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     void Rotate()
     {
-        aimDirection = mousePosition - (Vector2)weaponContainer.position;
+        if (MobileCommands.areEnabled && mobileDirection == Vector2.zero)
+        {
+            currentWeapon.EnableTrace(false);
+
+            return;
+        }
+
+        if (!MobileCommands.areEnabled)
+            aimDirection = mousePosition - (Vector2)weaponContainer.position;
+        else
+            aimDirection = mobileDirection;
 
         Vector2 rotationDirection = ((Vector2)weaponContainer.position - (aimDirection + (Vector2)weaponContainer.position)).normalized;
         float angle = Mathf.Atan2(rotationDirection.y, rotationDirection.x) * Mathf.Rad2Deg;
         weaponContainer.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
 
-        if (Mathf.Abs(mousePosition.x - weaponContainer.position.x) > 0.25f)
+        if (MobileCommands.areEnabled && mobileDirection != Vector2.zero)
+            currentWeapon.EnableTrace(true);
+
+        if (!MobileCommands.areEnabled)
         {
-            if (mousePosition.x < weaponContainer.position.x)
+            if (Mathf.Abs(mousePosition.x - weaponContainer.position.x) > 0.25f)
             {
+                if (mousePosition.x < weaponContainer.position.x)
+                {
+                    weaponContainer.localScale = new Vector3(-1, -1, 1);
+
+                    OnFlipped?.Invoke(false);
+                }
+                else
+                {
+                    weaponContainer.localScale = new Vector3(1, 1, 1);
+
+                    OnFlipped?.Invoke(true);
+                }
+            }
+        }
+        else
+        {
+            if (mobileDirection.x < weaponContainer.localPosition.x)
+            {
+                if (weaponContainer.localScale != new Vector3(-1, -1, 1)) currentWeapon.EnableTrace(false);
+
                 weaponContainer.localScale = new Vector3(-1, -1, 1);
 
                 OnFlipped?.Invoke(false);
             }
             else
             {
+                if (weaponContainer.localScale != new Vector3(1, 1, 1)) currentWeapon.EnableTrace(false);
+
                 weaponContainer.localScale = new Vector3(1, 1, 1);
 
                 OnFlipped?.Invoke(true);
             }
         }
+
+
+        if (MobileCommands.areEnabled && canFire) Shoot();
+    }
+
+    public void SetAiming(Vector2 direction)
+    {
+        mobileDirection = direction;
     }
 
     public void SetIsFiring(bool isFiring)
     {
-        if (!canFire) return;
+        if (!canFire || MobileCommands.areEnabled) return;
 
         this.isFiring = isFiring;
     }

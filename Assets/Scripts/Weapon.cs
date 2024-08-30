@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     Animator animator;
+    Camera mainCamera;
 
     public string id = "Pistol";
 
@@ -13,7 +14,9 @@ public class Weapon : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     [SerializeField] string bulletId = "Bullet";
     [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] Transform distancePoint;
     [SerializeField] GameObject muzzleFlash;
+    [SerializeField] GameObject trace;
 
     Vector2 direction;
 
@@ -22,6 +25,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        mainCamera = Camera.main;
 
         weaponObject.stats.ammos = weaponObject.stats.defaultAmmos;
         weaponObject.stats.ammosInUse = weaponObject.stats.maxAmmosInUse;
@@ -37,7 +41,10 @@ public class Weapon : MonoBehaviour
     {
         if (!canShoot) return;
 
-        direction = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)bulletSpawnPoint.position).normalized;
+        if (!MobileCommands.areEnabled)
+            direction = ((Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition) - (Vector2)bulletSpawnPoint.position).normalized;
+        else
+            direction = ((Vector2)distancePoint.position - (Vector2)bulletSpawnPoint.position).normalized;
 
         GameObject bullet = PoolManager.Instance.Instantiate(bulletId,
                                                     bulletSpawnPoint.position, GetRotation(bulletSpawnPoint.position, direction));
@@ -69,5 +76,10 @@ public class Weapon : MonoBehaviour
         Vector2 rotationDirection = (position + direction - position).normalized;
         float angle = Mathf.Atan2(rotationDirection.y, rotationDirection.x) * Mathf.Rad2Deg;
         return Quaternion.Euler(Vector3.forward * (angle - 90f));
+    }
+
+    public void EnableTrace(bool isEnabled)
+    {
+        trace.SetActive(isEnabled);
     }
 }
