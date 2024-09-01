@@ -1,2 +1,2 @@
 # Zombies-Waves-Survival
-Top-Down Roguelike Game made for Fiverr
+2D Top-Down Roguelike Game made for Fiverr
