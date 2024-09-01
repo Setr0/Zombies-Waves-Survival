@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if (grassTilemap.HasTile(position) && !waterTilemap.HasTile(position))
             {
-                grassTilesPositions.Add((Vector2Int)position);
+                grassTilesPositions.Add(grassTilemap.GetCellCenterWorld(position));
             }
         }
     }
